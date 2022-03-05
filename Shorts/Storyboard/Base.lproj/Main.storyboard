@@ -13,12 +13,44 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Shorts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="BYZ-38-t0r" customClass="HomeVC" customModule="Shorts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kY1-95-fEr">
+                                <rect key="frame" x="20" y="64" width="374" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="wkf-NK-EMc"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Trending"/>
+                                    <segment title="Now Playing"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentIndexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="7vG-s8-j4z"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Mhz-5U-thH">
+                                <rect key="frame" x="0.0" y="104" width="414" height="709"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Nng-GB-GdH"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="k63-KA-1qZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mhz-5U-thH" firstAttribute="top" secondItem="kY1-95-fEr" secondAttribute="bottom" id="54S-ht-HmK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Mhz-5U-thH" secondAttribute="bottom" id="ARG-EF-h6I"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kY1-95-fEr" secondAttribute="trailing" constant="20" id="cFb-Wn-1ap"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mhz-5U-thH" secondAttribute="trailing" id="ia8-Dt-ypc"/>
+                            <constraint firstItem="kY1-95-fEr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="j1q-VB-mz1"/>
+                            <constraint firstItem="Mhz-5U-thH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oPp-Gm-aqF"/>
+                            <constraint firstItem="kY1-95-fEr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="xbf-NG-Sel"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="KQu-Un-FDK">
                         <imageReference key="image" image="homekit" catalog="system" symbolScale="default" renderingMode="hierarchical-single">
@@ -37,6 +69,10 @@
                         </imageReference>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="GxB-m9-EZ7"/>
+                    <connections>
+                        <outlet property="segmentControl" destination="kY1-95-fEr" id="287-e3-RD1"/>
+                        <outlet property="tableView" destination="Mhz-5U-thH" id="cQD-eF-OWJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

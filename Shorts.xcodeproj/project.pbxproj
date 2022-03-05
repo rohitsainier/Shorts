@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9116F2D627D1EA8800C10EEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116F2D527D1EA8800C10EEC /* AppDelegate.swift */; };
 		9116F2D827D1EA8800C10EEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116F2D727D1EA8800C10EEC /* SceneDelegate.swift */; };
-		9116F2DA27D1EA8800C10EEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116F2D927D1EA8800C10EEC /* ViewController.swift */; };
+		9116F2DA27D1EA8800C10EEC /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116F2D927D1EA8800C10EEC /* HomeVC.swift */; };
 		9116F2DD27D1EA8800C10EEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9116F2DB27D1EA8800C10EEC /* Main.storyboard */; };
 		9116F2E027D1EA8800C10EEC /* Shorts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9116F2DE27D1EA8800C10EEC /* Shorts.xcdatamodeld */; };
 		9116F2E227D1EA8A00C10EEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9116F2E127D1EA8A00C10EEC /* Assets.xcassets */; };
@@ -20,6 +20,10 @@
 		9116F30B27D1EB3B00C10EEC /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116F30A27D1EB3B00C10EEC /* DataRequest.swift */; };
 		9116F30D27D1EC4000C10EEC /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116F30C27D1EC4000C10EEC /* ErrorResponse.swift */; };
 		9116F30F27D1EC8D00C10EEC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116F30E27D1EC8D00C10EEC /* NetworkService.swift */; };
+		91F2F40A27D3D21A00B8D182 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2F40927D3D21A00B8D182 /* HomeViewModel.swift */; };
+		91F2F40D27D3D77C00B8D182 /* TrendingMovieRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2F40C27D3D77C00B8D182 /* TrendingMovieRequest.swift */; };
+		91F2F40F27D3DA0B00B8D182 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2F40E27D3DA0B00B8D182 /* Movie.swift */; };
+		91F2F41227D3E7D200B8D182 /* NowPlayingMovieRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2F41127D3E7D200B8D182 /* NowPlayingMovieRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +47,7 @@
 		9116F2D227D1EA8800C10EEC /* Shorts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shorts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9116F2D527D1EA8800C10EEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9116F2D727D1EA8800C10EEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9116F2D927D1EA8800C10EEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9116F2D927D1EA8800C10EEC /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		9116F2DC27D1EA8800C10EEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9116F2DF27D1EA8800C10EEC /* Shorts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shorts.xcdatamodel; sourceTree = "<group>"; };
 		9116F2E127D1EA8A00C10EEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +61,10 @@
 		9116F30A27D1EB3B00C10EEC /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		9116F30C27D1EC4000C10EEC /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		9116F30E27D1EC8D00C10EEC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		91F2F40927D3D21A00B8D182 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		91F2F40C27D3D77C00B8D182 /* TrendingMovieRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovieRequest.swift; sourceTree = "<group>"; };
+		91F2F40E27D3DA0B00B8D182 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		91F2F41127D3E7D200B8D182 /* NowPlayingMovieRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingMovieRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,7 @@
 		9116F2D427D1EA8800C10EEC /* Shorts */ = {
 			isa = PBXGroup;
 			children = (
+				91F2F41027D3DC2200B8D182 /* AppHelper */,
 				91F2F40827D345E800B8D182 /* Storyboard */,
 				91F2F40727D345D200B8D182 /* Model */,
 				91F2F40627D345C800B8D182 /* ViewModel */,
@@ -150,6 +159,7 @@
 		9116F30927D1EAE700C10EEC /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				91F2F40B27D3D75B00B8D182 /* Request */,
 				9116F30A27D1EB3B00C10EEC /* DataRequest.swift */,
 				9116F30C27D1EC4000C10EEC /* ErrorResponse.swift */,
 				9116F30E27D1EC8D00C10EEC /* NetworkService.swift */,
@@ -160,7 +170,7 @@
 		91F2F40527D343D200B8D182 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9116F2D927D1EA8800C10EEC /* ViewController.swift */,
+				9116F2D927D1EA8800C10EEC /* HomeVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -168,6 +178,7 @@
 		91F2F40627D345C800B8D182 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				91F2F40927D3D21A00B8D182 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,6 +186,7 @@
 		91F2F40727D345D200B8D182 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				91F2F40E27D3DA0B00B8D182 /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +197,22 @@
 				9116F2DB27D1EA8800C10EEC /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		91F2F40B27D3D75B00B8D182 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				91F2F40C27D3D77C00B8D182 /* TrendingMovieRequest.swift */,
+				91F2F41127D3E7D200B8D182 /* NowPlayingMovieRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		91F2F41027D3DC2200B8D182 /* AppHelper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,13 +346,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9116F2DA27D1EA8800C10EEC /* ViewController.swift in Sources */,
+				9116F2DA27D1EA8800C10EEC /* HomeVC.swift in Sources */,
 				9116F30B27D1EB3B00C10EEC /* DataRequest.swift in Sources */,
+				91F2F40D27D3D77C00B8D182 /* TrendingMovieRequest.swift in Sources */,
 				9116F2D627D1EA8800C10EEC /* AppDelegate.swift in Sources */,
+				91F2F40F27D3DA0B00B8D182 /* Movie.swift in Sources */,
+				91F2F40A27D3D21A00B8D182 /* HomeViewModel.swift in Sources */,
 				9116F30D27D1EC4000C10EEC /* ErrorResponse.swift in Sources */,
 				9116F2E027D1EA8800C10EEC /* Shorts.xcdatamodeld in Sources */,
 				9116F2D827D1EA8800C10EEC /* SceneDelegate.swift in Sources */,
 				9116F30F27D1EC8D00C10EEC /* NetworkService.swift in Sources */,
+				91F2F41227D3E7D200B8D182 /* NowPlayingMovieRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
