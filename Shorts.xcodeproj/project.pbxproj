@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910BB9D427D4A2F700C214B9 /* AppEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910BB9D327D4A2F700C214B9 /* AppEnum.swift */; };
 		9116F2D627D1EA8800C10EEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116F2D527D1EA8800C10EEC /* AppDelegate.swift */; };
 		9116F2D827D1EA8800C10EEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116F2D727D1EA8800C10EEC /* SceneDelegate.swift */; };
 		9116F2DA27D1EA8800C10EEC /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116F2D927D1EA8800C10EEC /* HomeVC.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		910BB9D327D4A2F700C214B9 /* AppEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnum.swift; sourceTree = "<group>"; };
 		9116F2D227D1EA8800C10EEC /* Shorts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shorts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9116F2D527D1EA8800C10EEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9116F2D727D1EA8800C10EEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		910BB9D227D4A26B00C214B9 /* AppEnum */ = {
+			isa = PBXGroup;
+			children = (
+				910BB9D327D4A2F700C214B9 /* AppEnum.swift */,
+			);
+			path = AppEnum;
+			sourceTree = "<group>";
+		};
 		9116F2C927D1EA8800C10EEC = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +133,7 @@
 		9116F2D427D1EA8800C10EEC /* Shorts */ = {
 			isa = PBXGroup;
 			children = (
+				910BB9D227D4A26B00C214B9 /* AppEnum */,
 				91F5683727D4129900F9A717 /* View */,
 				91F2F41027D3DC2200B8D182 /* AppHelper */,
 				91F2F40827D345E800B8D182 /* Storyboard */,
@@ -396,6 +407,7 @@
 				9116F2E027D1EA8800C10EEC /* Shorts.xcdatamodeld in Sources */,
 				9116F2D827D1EA8800C10EEC /* SceneDelegate.swift in Sources */,
 				9116F30F27D1EC8D00C10EEC /* NetworkService.swift in Sources */,
+				910BB9D427D4A2F700C214B9 /* AppEnum.swift in Sources */,
 				91F2F41227D3E7D200B8D182 /* NowPlayingMovieRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
