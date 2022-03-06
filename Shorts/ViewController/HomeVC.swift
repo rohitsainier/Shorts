@@ -68,5 +68,11 @@ extension HomeVC: UITableViewDelegate,UITableViewDataSource{
         cell.bindViewWith(viewModel: MovieViewModel(movie: movie))
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc: MovieDetailsVC = STORYBOARD.MAIN.load.instantiateViewController(withIdentifier: VIEW_CONTROLLER.MOVIE_DETAIL.rawValue) as! MovieDetailsVC
+        let movie = viewModel.movieType == .Trending ? viewModel.trendingMovies[indexPath.row] : viewModel.nowPlayingMovies[indexPath.row]
+        vc.movie = movie
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
