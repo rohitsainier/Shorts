@@ -50,6 +50,7 @@ extension HomeVC{
     }
 }
 
+//MARK: - TableView Delegate
 extension HomeVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -63,6 +64,8 @@ extension HomeVC: UITableViewDelegate,UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TABLE_VIEW.MOVIE_CELL.rawValue, for: indexPath) as? MovieCell else {
             return UITableViewCell()
         }
+        let movie = viewModel.movieType == .Trending ? viewModel.trendingMovies[indexPath.row] : viewModel.nowPlayingMovies[indexPath.row]
+        cell.bindViewWith(viewModel: MovieViewModel(movie: movie))
         return cell
     }
 }

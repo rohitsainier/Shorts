@@ -26,4 +26,12 @@ class MovieCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func bindViewWith(viewModel: MovieViewDelegate) {
+        let movie = viewModel.movie
+        titleLbl.text = movie.originalTitle
+        overviewLbl.text = movie.overview
+        ImageClient.shared.setImage(from: movie.posterURL, placeholderImage: nil) { [weak self] image in
+            self?.posterImage.image = image
+        }
+    }
 }

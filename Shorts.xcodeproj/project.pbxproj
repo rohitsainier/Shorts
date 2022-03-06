@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		910BB9D427D4A2F700C214B9 /* AppEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910BB9D327D4A2F700C214B9 /* AppEnum.swift */; };
+		910BB9D627D4B37B00C214B9 /* MovieCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910BB9D527D4B37B00C214B9 /* MovieCellViewModel.swift */; };
 		9116F2D627D1EA8800C10EEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116F2D527D1EA8800C10EEC /* AppDelegate.swift */; };
 		9116F2D827D1EA8800C10EEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116F2D727D1EA8800C10EEC /* SceneDelegate.swift */; };
 		9116F2DA27D1EA8800C10EEC /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9116F2D927D1EA8800C10EEC /* HomeVC.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		910BB9D327D4A2F700C214B9 /* AppEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnum.swift; sourceTree = "<group>"; };
+		910BB9D527D4B37B00C214B9 /* MovieCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellViewModel.swift; sourceTree = "<group>"; };
 		9116F2D227D1EA8800C10EEC /* Shorts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shorts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9116F2D527D1EA8800C10EEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9116F2D727D1EA8800C10EEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				91F2F40927D3D21A00B8D182 /* HomeViewModel.swift */,
+				910BB9D527D4B37B00C214B9 /* MovieCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				9116F30F27D1EC8D00C10EEC /* NetworkService.swift in Sources */,
 				910BB9D427D4A2F700C214B9 /* AppEnum.swift in Sources */,
 				91F2F41227D3E7D200B8D182 /* NowPlayingMovieRequest.swift in Sources */,
+				910BB9D627D4B37B00C214B9 /* MovieCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

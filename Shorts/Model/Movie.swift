@@ -28,6 +28,9 @@ struct Movie: Codable {
     let overview: String
     let releaseDate: String?
     let id: Int
+    public var posterURL: String {
+        return "https://image.tmdb.org/t/p/w500\(posterPath)"
+    }
    
     enum CodingKeys: String, CodingKey {
         case originalTitle = "original_title"
