@@ -52,14 +52,12 @@ extension HomeVC{
 
 //MARK: - TableView Delegate
 extension HomeVC: UITableViewDelegate,UITableViewDataSource{
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.movieType == .Trending ? viewModel.trendingMovies.count : viewModel.nowPlayingMovies.count
     }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TABLE_VIEW.MOVIE_CELL.rawValue, for: indexPath) as? MovieCell else {
             return UITableViewCell()
