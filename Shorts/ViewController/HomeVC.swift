@@ -8,7 +8,7 @@
 import UIKit
 
 final class HomeVC: UIViewController {
-
+    
     //OUTLETS
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
@@ -21,7 +21,7 @@ final class HomeVC: UIViewController {
         configUI()
         viewModel.fetchMovie(type: .Trending)
         viewModel.fetchMovie(type: .NowPlaying)
-        viewModel.onFetchMovieSucceed = { [weak self] in            
+        viewModel.onFetchMovieSucceed = { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
@@ -56,21 +56,41 @@ extension HomeVC: UITableViewDelegate,UITableViewDataSource{
         return 120
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.movieType == .Trending ? viewModel.trendingMovies.count : viewModel.nowPlayingMovies.count
+        return viewModel.movieType == .Trending ? viewModel.trendingMovies?.results.count ?? 0 : viewModel.nowPlayingMovies?.results.count ?? 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TABLE_VIEW.MOVIE_CELL.rawValue, for: indexPath) as? MovieCell else {
             return UITableViewCell()
         }
-        let movie = viewModel.movieType == .Trending ? viewModel.trendingMovies[indexPath.row] : viewModel.nowPlayingMovies[indexPath.row]
-        cell.bindViewWith(viewModel: MovieViewModel(movie: movie))
+        if let movie = viewModel.movieType == .Trending ? viewModel.trendingMovies?.results[indexPath.row] : viewModel.nowPlayingMovies?.results[indexPath.row]{
+            cell.bindViewWith(viewModel: MovieViewModel(movie: movie))
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc: MovieDetailsVC = STORYBOARD.MAIN.load.instantiateViewController(withIdentifier: VIEW_CONTROLLER.MOVIE_DETAIL.rawValue) as! MovieDetailsVC
-        let movie = viewModel.movieType == .Trending ? viewModel.trendingMovies[indexPath.row] : viewModel.nowPlayingMovies[indexPath.row]
-        vc.movie = movie
-        self.navigationController?.pushViewController(vc, animated: true)
+        if let movie = viewModel.movieType == .Trending ? viewModel.trendingMovies?.results[indexPath.row] : viewModel.nowPlayingMovies?.results[indexPath.row]{
+            vc.movie = movie
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        switch viewModel.movieType {
+            case .Trending:
+                if let trendingMovies = viewModel.trendingMovies{
+                    if indexPath.row == trendingMovies.results.count - 1 && trendingMovies.totalPages > trendingMovies.page{
+                        viewModel.fetchNextBadge(type: .Trending, page: trendingMovies.page + 1)
+                    }
+                }
+                
+            case .NowPlaying:
+                if let nowPlayingMovies = viewModel.nowPlayingMovies{
+                    if indexPath.row == nowPlayingMovies.results.count - 1 && nowPlayingMovies.totalPages > nowPlayingMovies.page{
+                        viewModel.fetchNextBadge(type: .NowPlaying, page: nowPlayingMovies.page + 1)
+                    }
+                }
+        }
+        
     }
 }
 

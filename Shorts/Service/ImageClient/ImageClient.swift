@@ -17,16 +17,12 @@ final class ImageClient{
     static let shared = ImageClient(responseQueue: .main, session: URLSession.shared)
     
     
-    private(set) var cachedImageForURL: [String: UIImage]
-    private(set) var cachedTaskForImageView: [UIImageView : NetworkService]
+    private(set) var cachedImageForURL = SwiftlyLRU<String, UIImage>(capacity: 40)
     
     let responseQueue: DispatchQueue?
     let session: URLSession
     
     private init(responseQueue: DispatchQueue?, session: URLSession) {
-        self.cachedImageForURL = [:]
-        self.cachedTaskForImageView = [:]
-        
         self.responseQueue = responseQueue
         self.session = session
     }

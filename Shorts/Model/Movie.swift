@@ -10,8 +10,8 @@ import Foundation
 
 // MARK: - Welcome
 struct MovieModel: Codable {
-    let page: Int
-    let results: [Movie]
+    var page: Int
+    var results: [Movie]
     let totalPages, totalResults: Int
     
     enum CodingKeys: String, CodingKey {

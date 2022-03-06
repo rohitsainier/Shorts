@@ -10,9 +10,12 @@ import Foundation
 
 struct TrendingMovieRequest: DataRequest {
     typealias Response = MovieModel
-        
+    var page: Int
     private let apiKey: String = "4f5c62f312dd179fa66327da5db9e5f3"
     
+    init(page: Int = 1){
+        self.page = page
+    }
     var url: String {
         let baseURL: String = "https://api.themoviedb.org/3"
         let path: String = "/trending/all/day"
@@ -25,7 +28,8 @@ struct TrendingMovieRequest: DataRequest {
     
     var queryItems: [String : String] {
         [
-            "api_key": apiKey
+            "api_key": apiKey,
+            "page": "\(page)"
         ]
     }
     
