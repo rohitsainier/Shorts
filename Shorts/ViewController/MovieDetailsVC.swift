@@ -14,8 +14,12 @@ class MovieDetailsVC: UIViewController {
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var overviewLbl: UILabel!
+    @IBOutlet weak var bookmarkMovieBtn: UIButton!
     
+    //VARIBALES
     var movie: Movie?
+    
+    private let viewModel: MovieDetailViewModel = MovieDetailViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
@@ -31,19 +35,38 @@ class MovieDetailsVC: UIViewController {
                 self?.posterImage.image = image
             }
         }
+        
+        viewModel.onAddToBookmarkMovieSucceed = { [weak self] in
+            self?.bookmarkMovieBtn.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            self?.bookmarkMovieBtn.tintColor = .blue
+        }
+        
+        viewModel.onBookmarkFailure = { error in
+            print(error)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = false
-        self.tabBarController?.tabBar.isHidden = true
+        viewModel.showNavigation(vc: self)
+        viewModel.hideTabbar(vc: self)
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.tabBar.isHidden = false
+        viewModel.hideNavigation(vc: self)
+        viewModel.showTabbar(vc: self)
     }
 
+   
+}
+
+//MARK: - ACTIONS
+extension MovieDetailsVC{
+    @IBAction func bookmarkBtnPressed(_ sender: UIButton) {
+        if let movie = movie{
+            viewModel.addToBookmark(movie: movie)
+        }
+    }
 }

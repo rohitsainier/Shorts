@@ -17,7 +17,7 @@ final class ImageClient{
     static let shared = ImageClient(responseQueue: .main, session: URLSession.shared)
     
     
-    private(set) var cachedImageForURL = SwiftlyLRU<String, UIImage>(capacity: 40)
+    private(set) var cachedImageForURL = SwiftlyLRU<String, UIImage>(capacity: 20)
     
     let responseQueue: DispatchQueue?
     let session: URLSession

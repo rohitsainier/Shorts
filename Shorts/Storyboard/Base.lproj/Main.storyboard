@@ -85,11 +85,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9A-NG-tZI">
+                                <rect key="frame" x="354" y="308.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OKi-Dn-yav"/>
+                                    <constraint firstAttribute="width" constant="50" id="cFb-Kn-DZV"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="bookmark" catalog="system" symbolScale="default"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="bookmarkBtnPressed:" destination="h0S-oi-cYQ" eventType="touchUpInside" id="aGd-1A-lie"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jeW-RA-dGe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="K50-8Q-pwQ" firstAttribute="leading" secondItem="jeW-RA-dGe" secondAttribute="leading" constant="20" id="6un-H4-MsV"/>
+                            <constraint firstItem="9Fs-Cd-vu0" firstAttribute="top" secondItem="n9A-NG-tZI" secondAttribute="bottom" constant="10" id="FFs-aB-dn3"/>
                             <constraint firstItem="jeW-RA-dGe" firstAttribute="trailing" secondItem="3dd-WU-603" secondAttribute="trailing" id="MRa-Gu-fDP"/>
                             <constraint firstItem="K50-8Q-pwQ" firstAttribute="top" secondItem="9Fs-Cd-vu0" secondAttribute="bottom" constant="10" id="Qsc-46-q5v"/>
                             <constraint firstItem="3dd-WU-603" firstAttribute="leading" secondItem="jeW-RA-dGe" secondAttribute="leading" id="bfe-Kn-ElN"/>
@@ -97,11 +113,13 @@
                             <constraint firstItem="jeW-RA-dGe" firstAttribute="trailing" secondItem="K50-8Q-pwQ" secondAttribute="trailing" constant="20" id="egy-gS-2ok"/>
                             <constraint firstItem="9Fs-Cd-vu0" firstAttribute="leading" secondItem="jeW-RA-dGe" secondAttribute="leading" constant="20" id="evn-xz-zoZ"/>
                             <constraint firstItem="jeW-RA-dGe" firstAttribute="trailing" secondItem="9Fs-Cd-vu0" secondAttribute="trailing" constant="20" id="fxd-zO-gau"/>
+                            <constraint firstItem="jeW-RA-dGe" firstAttribute="trailing" secondItem="n9A-NG-tZI" secondAttribute="trailing" constant="10" id="ldI-2D-amE"/>
                             <constraint firstItem="9Fs-Cd-vu0" firstAttribute="top" secondItem="3dd-WU-603" secondAttribute="bottom" constant="10" id="qs3-pd-9eD"/>
                             <constraint firstItem="3dd-WU-603" firstAttribute="height" secondItem="pSU-Ze-G2K" secondAttribute="height" multiplier="0.4" id="yx2-wH-r05"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bookmarkMovieBtn" destination="n9A-NG-tZI" id="6DO-r2-Qr6"/>
                         <outlet property="overviewLbl" destination="K50-8Q-pwQ" id="Jji-BO-rwo"/>
                         <outlet property="posterImage" destination="3dd-WU-603" id="ddu-YJ-ygR"/>
                         <outlet property="titleLbl" destination="9Fs-Cd-vu0" id="ngl-LA-Qxn"/>
