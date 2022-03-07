@@ -14,7 +14,9 @@ final class HomeVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //VARIABLES
+    //TODO: - Try to use DI here (init)
     private let viewModel: HomeViewModel = HomeViewModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

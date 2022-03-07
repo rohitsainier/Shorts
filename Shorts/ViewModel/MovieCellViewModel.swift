@@ -9,6 +9,7 @@ import Foundation
 
 protocol MovieViewDelegate {
     var movie: Movie { set get }
+    
 }
 
 final class MovieViewModel: MovieViewDelegate {
