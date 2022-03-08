@@ -34,6 +34,7 @@ final class HomeVC: UIViewController {
     }
     
     private func configUI(){
+        self.title = "Home"
         tableView.register(UINib(nibName: TABLE_VIEW.MOVIE_CELL.rawValue, bundle: nil), forCellReuseIdentifier: TABLE_VIEW.MOVIE_CELL.rawValue)
     }
 }

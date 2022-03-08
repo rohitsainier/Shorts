@@ -43,11 +43,3 @@ struct Movie: Codable {
         case movieImageData
     }
 }
-
-// MARK: - SavedMovie
-struct SavedMovie: Codable {
-    let originalTitle: String?
-    let overview: String
-    let id: Double
-    let posterURL: Data
-}

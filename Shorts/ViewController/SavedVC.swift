@@ -25,6 +25,7 @@ class SavedVC: UIViewController {
     }
   
     private func configUI(){
+        self.title = "Saved"
         tableView.register(UINib(nibName: TABLE_VIEW.MOVIE_CELL.rawValue, bundle: nil), forCellReuseIdentifier: TABLE_VIEW.MOVIE_CELL.rawValue)
     }
 

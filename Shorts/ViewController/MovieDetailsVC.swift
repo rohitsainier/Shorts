@@ -73,7 +73,6 @@ extension MovieDetailsVC{
             if !viewModel.isSaved(movie: movie){
                 viewModel.addToBookmark(movie: movie)
             }
-            
         }
     }
 }
