@@ -12,7 +12,7 @@ import CoreData
 protocol CDMovieDelegate{
     func create(movie: Movie)
     func getAllMovies() -> [Movie]?
-    func get(byIdentifier id: Double) -> Movie?
+    func get(byIdentifier id: String) -> Movie?
     func update(movie: Movie)
     func delete(movie: Movie)
 }
@@ -23,7 +23,7 @@ extension CDMovieDelegate{
         let request = ImageRequest(url: movie.posterURL)
         ImageClient.shared.downloadImageData(request: request) { imageData in
             let cdMovie = CDMovie(context: PersistentStorage.shared.context)
-            cdMovie.id = Double(movie.id)
+            cdMovie.id = String(movie.id)
             cdMovie.originalTitle = movie.originalTitle
             cdMovie.overview = movie.overview
             cdMovie.posterURL = imageData
@@ -41,7 +41,7 @@ extension CDMovieDelegate{
         return movies
     }
     
-    func get(byIdentifier id: Double) -> Movie? {
+    func get(byIdentifier id: String) -> Movie? {
         let fetchRequest = NSFetchRequest<CDMovie>(entityName: "CDMovie")
         let predicate = NSPredicate(format: "id==%@", id as CVarArg)
         fetchRequest.predicate = predicate

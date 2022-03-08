@@ -28,7 +28,7 @@ final class MovieDetailViewModel:MovieDetailDelegate{
     }
     
     func isSaved(movie: Movie) -> Bool{
-        let saved = self.get(byIdentifier: Double(movie.id))
+        let saved = self.get(byIdentifier: String(movie.id))
         return (saved != nil) ? true : false
     }
     
