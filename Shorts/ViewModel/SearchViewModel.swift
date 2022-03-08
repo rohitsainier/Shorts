@@ -13,7 +13,6 @@ protocol SearchDelegate{
     func searchMovies(query: String)
     var onFetchMovieSucceed: (() -> Void)? { set get }
     var onFetchMovieFailure: ((Error) -> Void)? { set get }
-    
 }
 
 final class SearchViewModel: SearchDelegate{
@@ -30,20 +29,22 @@ final class SearchViewModel: SearchDelegate{
     }
     
     
-    
     func searchMovies(query: String = "") {
-        let request = SearchMovieRequest(query: query)
-        networkService.request(request) { [weak self] result in
-            switch result {
-                case .success(let movies):
-                    self?.searchedMovies = movies
-                    self?.onFetchMovieSucceed?()
-                case .failure(let error):
-                    self?.searchedMovies = nil
-                    self?.onFetchMovieFailure?(error)
+        workItemReferance?.cancel()
+        let workItem = DispatchWorkItem {
+            let request = SearchMovieRequest(query: query)
+            self.networkService.request(request) { [weak self] result in
+                switch result {
+                    case .success(let movies):
+                        self?.searchedMovies = movies
+                        self?.onFetchMovieSucceed?()
+                    case .failure(let error):
+                        self?.searchedMovies = nil
+                        self?.onFetchMovieFailure?(error)
+                }
             }
         }
+        workItemReferance = workItem
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: workItem)
     }
-    
-    
 }
