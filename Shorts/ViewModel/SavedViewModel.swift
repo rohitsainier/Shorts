@@ -14,6 +14,9 @@ protocol SavedDelegate:CDMovieDelegate{
     var onFetchMovieSucceed: (() -> Void)? { set get }
 }
 
+extension SavedDelegate{
+    func fetchSavedMovies(){}
+}
 
 final class SavedMoviesViewModel: SavedDelegate{
     var onFetchMovieSucceed: (() -> Void)?

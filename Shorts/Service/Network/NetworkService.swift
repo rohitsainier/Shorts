@@ -52,7 +52,12 @@ final class DefaultNetworkService:NetworkService{
             }
             
             guard let response = response as? HTTPURLResponse, 200..<300 ~= response.statusCode else {
-                return completion(.failure(NSError()))
+                let error = NSError(
+                    domain: ErrorResponse.apiError.rawValue,
+                    code: 0,
+                    userInfo: nil
+                )
+                return completion(.failure(error))
             }
             
             guard let data = data else {

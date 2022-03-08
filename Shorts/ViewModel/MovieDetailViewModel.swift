@@ -18,7 +18,6 @@ protocol MovieDetailDelegate:NaviagtionDelegate,CDMovieDelegate{
 
 
 final class MovieDetailViewModel:MovieDetailDelegate{
-    var onFetchMovieSucceed: (() -> Void)?
     
     var onAddToBookmarkMovieSucceed: (() -> Void)?
     var onBookmarkFailure: ((Error) -> Void)?

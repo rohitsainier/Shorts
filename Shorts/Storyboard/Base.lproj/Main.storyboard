@@ -60,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2842.0289855072465" y="65.625"/>
+            <point key="canvasLocation" x="2565" y="-546"/>
         </scene>
         <!--Movie DetailsVC-->
         <scene sceneID="7Ep-sM-DWd">
@@ -127,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIk-2G-yXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3597.1014492753625" y="65.625"/>
+            <point key="canvasLocation" x="3312" y="-546"/>
         </scene>
         <!--SavedVC-->
         <scene sceneID="RIu-Vh-aeN">
@@ -162,7 +162,57 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LWg-sh-zxa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2662.3188405797105" y="839.0625"/>
+            <point key="canvasLocation" x="2539" y="940"/>
+        </scene>
+        <!--SearchVC-->
+        <scene sceneID="oGN-7j-LEm">
+            <objects>
+                <viewController storyboardIdentifier="SearchVC" id="anU-H4-CfZ" customClass="SearchVC" customModule="Shorts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2KH-97-lSz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wav-mP-upt">
+                                <rect key="frame" x="0.0" y="139" width="414" height="674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="anU-H4-CfZ" id="PKA-bY-aU8"/>
+                                    <outlet property="delegate" destination="anU-H4-CfZ" id="BBT-Sw-6gF"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Movies" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-Kz-gro">
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="anU-H4-CfZ" id="kDJ-cU-3kf"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ykc-LD-kc5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ykc-LD-kc5" firstAttribute="trailing" secondItem="wav-mP-upt" secondAttribute="trailing" id="5fD-dG-rSk"/>
+                            <constraint firstItem="8Np-Kz-gro" firstAttribute="trailing" secondItem="ykc-LD-kc5" secondAttribute="trailing" id="FJl-AV-8jc"/>
+                            <constraint firstItem="8Np-Kz-gro" firstAttribute="top" secondItem="ykc-LD-kc5" secondAttribute="top" id="O7t-LS-ovY"/>
+                            <constraint firstItem="8Np-Kz-gro" firstAttribute="leading" secondItem="ykc-LD-kc5" secondAttribute="leading" id="W9p-I3-ykW"/>
+                            <constraint firstItem="wav-mP-upt" firstAttribute="leading" secondItem="ykc-LD-kc5" secondAttribute="leading" id="bJ8-Cc-I2s"/>
+                            <constraint firstItem="wav-mP-upt" firstAttribute="top" secondItem="8Np-Kz-gro" secondAttribute="bottom" id="g0I-x9-agZ"/>
+                            <constraint firstItem="ykc-LD-kc5" firstAttribute="bottom" secondItem="wav-mP-upt" secondAttribute="bottom" id="nwU-Xq-d9W"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Uu5-qc-Hzw"/>
+                    <connections>
+                        <outlet property="searchBar" destination="8Np-Kz-gro" id="I8A-r0-OaV"/>
+                        <outlet property="tableView" destination="wav-mP-upt" id="Duf-1P-OCb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x2o-z7-nXP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3015.9420289855075" y="187.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xVC-gU-IIV">
@@ -177,6 +227,7 @@
                     <connections>
                         <segue destination="9ih-sh-Jnn" kind="relationship" relationship="viewControllers" id="WYO-vk-97X"/>
                         <segue destination="TJz-ZL-I1J" kind="relationship" relationship="viewControllers" id="vwS-aA-6Ev"/>
+                        <segue destination="UAl-FA-nPh" kind="relationship" relationship="viewControllers" id="Kfb-sD-fYc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9VK-lv-5Tf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -216,7 +267,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qdb-do-DaH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1931.8840579710147" y="65.625"/>
+            <point key="canvasLocation" x="1751" y="-546"/>
         </scene>
         <!--Saved-->
         <scene sceneID="aed-XL-n7g">
@@ -251,13 +302,48 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4RK-UU-AAB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1750.7246376811595" y="838.39285714285711"/>
+            <point key="canvasLocation" x="1751" y="940"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="Wwn-fS-Av9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UAl-FA-nPh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" id="5RJ-50-ajF">
+                        <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="default" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color systemColor="labelColor"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                        <imageReference key="selectedImage" image="magnifyingglass" catalog="system" symbolScale="default" renderingMode="hierarchical-single">
+                            <hierarchicalColors>
+                                <color systemColor="tintColor"/>
+                                <color systemColor="secondaryLabelColor"/>
+                                <color systemColor="tertiaryLabelColor"/>
+                            </hierarchicalColors>
+                        </imageReference>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yxm-zC-nHq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="anU-H4-CfZ" kind="relationship" relationship="rootViewController" id="orV-hv-5ka"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LmM-6W-TCw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2232" y="188"/>
         </scene>
     </scenes>
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
