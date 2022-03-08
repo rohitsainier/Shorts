@@ -8,8 +8,9 @@
 import Foundation
 import UIKit
 
-protocol MovieDetailDelegate:NaviagtionDelegate{
+protocol MovieDetailDelegate:NaviagtionDelegate,CDMovieDelegate{
     func addToBookmark(movie: Movie)
+    func isSaved(movie: Movie) -> Bool
     var onAddToBookmarkMovieSucceed: (() -> Void)? { set get }
     var onBookmarkFailure: ((Error) -> Void)? { set get }
     
@@ -17,11 +18,18 @@ protocol MovieDetailDelegate:NaviagtionDelegate{
 
 
 final class MovieDetailViewModel:MovieDetailDelegate{
+    
     var onAddToBookmarkMovieSucceed: (() -> Void)?
     var onBookmarkFailure: ((Error) -> Void)?
     
     func addToBookmark(movie: Movie) {
-        //add to core data db
+        self.create(movie: movie)
         onAddToBookmarkMovieSucceed?()
     }
+    
+    func isSaved(movie: Movie) -> Bool{
+        let saved = self.get(byIdentifier: Double(movie.id))
+        return (saved != nil) ? true : false
+    }
+    
 }

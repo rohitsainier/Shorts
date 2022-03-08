@@ -9,6 +9,63 @@ import Foundation
 import CoreData
 
 
+protocol CDMovieDelegate{
+    func create(movie: Movie)
+    func getAllMovies() -> [Movie]?
+    func get(byIdentifier id: Double) -> Movie?
+    func update(movie: Movie)
+    func delete(movie: Movie)
+}
+
+
+extension CDMovieDelegate{
+    func create(movie: Movie) {
+        let request = ImageRequest(url: movie.posterURL)
+        ImageClient.shared.downloadImageData(request: request) { imageData in
+            let cdMovie = CDMovie(context: PersistentStorage.shared.context)
+            cdMovie.id = Double(movie.id)
+            cdMovie.originalTitle = movie.originalTitle
+            cdMovie.overview = movie.overview
+            cdMovie.posterURL = imageData
+            PersistentStorage.shared.saveContext()
+        }
+        
+    }
+    
+    func getAllMovies() -> [Movie]? {
+        let result = PersistentStorage.shared.fetchManagedObject(managedObject: CDMovie.self)
+        var movies: [Movie] = []
+        result?.forEach({ cdMovie in
+            movies.append(cdMovie.convertToMovie())
+        })
+        return movies
+    }
+    
+    func get(byIdentifier id: Double) -> Movie? {
+        let fetchRequest = NSFetchRequest<CDMovie>(entityName: "CDMovie")
+        let predicate = NSPredicate(format: "id==%@", id as CVarArg)
+        fetchRequest.predicate = predicate
+        do{
+            let result = try PersistentStorage.shared.context.fetch(fetchRequest).first
+            guard result != nil else {return nil}
+            return result?.convertToMovie()
+        }
+        catch let error{
+            print(error)
+        }
+        return nil
+    }
+    
+    func update(movie: Movie) {
+        
+    }
+    
+    func delete(movie: Movie) {
+        
+    }
+    
+}
+
 
 final class PersistentStorage{
     private init(){}
@@ -56,6 +113,17 @@ final class PersistentStorage{
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func fetchManagedObject<T: NSManagedObject>(managedObject: T.Type) -> [T]?{
+        do{
+            guard let result = try PersistentStorage.shared.context.fetch(managedObject.fetchRequest()) as? [T] else {return nil}
+            return result
+        }
+        catch let error{
+            print(error)
+        }
+        return nil
     }
 
 }

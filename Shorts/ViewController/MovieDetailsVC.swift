@@ -34,6 +34,10 @@ class MovieDetailsVC: UIViewController {
             ImageClient.shared.setImage(from: movie.posterURL, placeholderImage: nil) { [weak self] image in
                 self?.posterImage.image = image
             }
+            if viewModel.isSaved(movie: movie){
+                self.bookmarkMovieBtn.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+                self.bookmarkMovieBtn.tintColor = .blue
+            }
         }
         
         viewModel.onAddToBookmarkMovieSucceed = { [weak self] in
@@ -66,7 +70,10 @@ class MovieDetailsVC: UIViewController {
 extension MovieDetailsVC{
     @IBAction func bookmarkBtnPressed(_ sender: UIButton) {
         if let movie = movie{
-            viewModel.addToBookmark(movie: movie)
+            if !viewModel.isSaved(movie: movie){
+                viewModel.addToBookmark(movie: movie)
+            }
+            
         }
     }
 }

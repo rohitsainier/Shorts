@@ -30,8 +30,13 @@ class MovieCell: UITableViewCell {
         let movie = viewModel.movie
         titleLbl.text = movie.originalTitle
         overviewLbl.text = movie.overview
-        ImageClient.shared.setImage(from: movie.posterURL, placeholderImage: nil) { [weak self] image in
-            self?.posterImage.image = image
+        if movie.movieImageData != nil{
+            posterImage.image = UIImage(data: movie.movieImageData ?? Data())
+        }
+        else{
+            ImageClient.shared.setImage(from: movie.posterURL, placeholderImage: nil) { [weak self] image in
+                self?.posterImage.image = image
+            }
         }
     }
 }

@@ -11,6 +11,7 @@ import UIKit
 protocol ImageClientService{
     func downloadImage<Request: DataRequest>(request: Request, completion: @escaping (UIImage?,Error?) -> Void)
     func setImage(from url: String,placeholderImage: UIImage?, completion: @escaping (UIImage?) -> Void)
+    func downloadImageData<Request: DataRequest>(request: Request, completion: @escaping (Data?) -> Void)
 }
 
 final class ImageClient{
@@ -41,6 +42,22 @@ final class ImageClient{
 }
 
 extension ImageClient: ImageClientService {
+    func downloadImageData<Request: DataRequest>(request: Request,completion: @escaping (Data?) -> Void){
+        let service: NetworkService = DefaultNetworkService()
+        
+        service.request(request) {result in
+            switch result {
+                case .success(let response):
+                    guard let image: UIImage = response as? UIImage else {
+                        return
+                    }
+                    let imageData = image.pngData()
+                    completion(imageData)
+                case .failure(_):
+                    completion(nil)
+            }
+        }
+    }
     func downloadImage<Request: DataRequest>(request: Request, completion: @escaping (UIImage?, Error?) -> Void) {
         
         let service: NetworkService = DefaultNetworkService()
@@ -74,7 +91,7 @@ extension ImageClient: ImageClientService {
                 }
                 
                 guard let image = image else {
-                    print(error?.localizedDescription ?? "")
+                    print("ERROR in downloading image")
                     return
                 }
                 

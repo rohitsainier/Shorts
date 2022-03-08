@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 // MARK: - Welcome
@@ -28,6 +29,7 @@ struct Movie: Codable {
     let overview: String
     let releaseDate: String?
     let id: Int
+    let movieImageData: Data?
     public var posterURL: String {
         return "https://image.tmdb.org/t/p/w500\(posterPath)"
     }
@@ -38,6 +40,14 @@ struct Movie: Codable {
         case overview
         case releaseDate = "release_date"
         case id
+        case movieImageData
     }
 }
 
+// MARK: - SavedMovie
+struct SavedMovie: Codable {
+    let originalTitle: String?
+    let overview: String
+    let id: Double
+    let posterURL: Data
+}

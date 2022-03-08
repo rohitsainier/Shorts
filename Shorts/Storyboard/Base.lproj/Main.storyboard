@@ -132,12 +132,28 @@
         <!--Saved-->
         <scene sceneID="RIu-Vh-aeN">
             <objects>
-                <viewController id="TPe-i0-B9I" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SavedVC" id="TPe-i0-B9I" customClass="SavedVC" customModule="Shorts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i6S-pl-dzf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vjq-tt-CQg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="TPe-i0-B9I" id="Jj6-Nl-wPa"/>
+                                    <outlet property="delegate" destination="TPe-i0-B9I" id="Mzy-np-DjU"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="1gv-8e-RrA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vjq-tt-CQg" firstAttribute="top" secondItem="1gv-8e-RrA" secondAttribute="top" id="0ZF-eo-Jjn"/>
+                            <constraint firstItem="1gv-8e-RrA" firstAttribute="bottom" secondItem="vjq-tt-CQg" secondAttribute="bottom" id="Wod-Jz-lnZ"/>
+                            <constraint firstItem="1gv-8e-RrA" firstAttribute="trailing" secondItem="vjq-tt-CQg" secondAttribute="trailing" id="d2H-b3-TO7"/>
+                            <constraint firstItem="vjq-tt-CQg" firstAttribute="leading" secondItem="1gv-8e-RrA" secondAttribute="leading" id="eCs-v7-dNT"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Saved" id="UaR-B4-WHm">
                         <imageReference key="image" image="bookmark" catalog="system" symbolScale="default" renderingMode="hierarchical-single">
@@ -155,6 +171,9 @@
                             </hierarchicalColors>
                         </imageReference>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="tableView" destination="vjq-tt-CQg" id="zO5-hc-C5e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LWg-sh-zxa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
