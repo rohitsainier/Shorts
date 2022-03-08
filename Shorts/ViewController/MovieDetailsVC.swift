@@ -31,8 +31,13 @@ class MovieDetailsVC: UIViewController {
         if let movie = movie{
             titleLbl.text = movie.originalTitle
             overviewLbl.text = movie.overview
-            ImageClient.shared.setImage(from: movie.posterURL, placeholderImage: nil) { [weak self] image in
-                self?.posterImage.image = image
+            if movie.movieImageData != nil{
+                posterImage.image = UIImage(data: movie.movieImageData ?? Data())
+            }
+            else{
+                ImageClient.shared.setImage(from: movie.posterURL, placeholderImage: nil) { [weak self] image in
+                    self?.posterImage.image = image
+                }
             }
             if viewModel.isSaved(movie: movie){
                 self.bookmarkMovieBtn.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
@@ -52,14 +57,12 @@ class MovieDetailsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.showNavigation(vc: self)
         viewModel.hideTabbar(vc: self)
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        viewModel.hideNavigation(vc: self)
         viewModel.showTabbar(vc: self)
     }
 

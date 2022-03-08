@@ -23,7 +23,7 @@ extension CDMovie {
     
     
     func convertToMovie() -> Movie{
-        return Movie(originalTitle: self.originalTitle, posterPath: "", overview: self.overview ?? "", releaseDate: "", id: Int(bitPattern: self.id), movieImageData: self.posterURL)
+        return Movie(originalTitle: self.originalTitle, posterPath: "", overview: self.overview ?? "", releaseDate: "", id:  Int(self.id!) ?? 0, movieImageData: self.posterURL)
     }
 
 }

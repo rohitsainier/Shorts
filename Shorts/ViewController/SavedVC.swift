@@ -46,4 +46,10 @@ extension SavedVC: UITableViewDelegate,UITableViewDataSource{
         cell.bindViewWith(viewModel: MovieViewModel(movie: viewModel.savedMovies[indexPath.row]))
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc: MovieDetailsVC = STORYBOARD.MAIN.load.instantiateViewController(withIdentifier: VIEW_CONTROLLER.MOVIE_DETAIL.rawValue) as! MovieDetailsVC
+        let movie = viewModel.savedMovies[indexPath.row]
+        vc.movie = movie
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
