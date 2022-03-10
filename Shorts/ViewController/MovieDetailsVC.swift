@@ -31,6 +31,7 @@ class MovieDetailsVC: UIViewController {
         if let movie = movie{
             titleLbl.text = movie.originalTitle
             overviewLbl.text = movie.overview
+            bookmarkMovieBtn.setTitle("", for: .normal)
             if movie.movieImageData != nil{
                 posterImage.image = UIImage(data: movie.movieImageData ?? Data())
             }
@@ -64,6 +65,7 @@ class MovieDetailsVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         viewModel.showTabbar(vc: self)
+        
     }
 
    

@@ -16,6 +16,10 @@ enum VIEW_CONTROLLER: String{
     case MOVIE_DETAIL = "MovieDetailsVC"
 }
 
+enum APP_LOADER:String{
+    case CustomLoader = "CustomLoader"
+}
+
 enum STORYBOARD{
     case MAIN
     var load: UIStoryboard{

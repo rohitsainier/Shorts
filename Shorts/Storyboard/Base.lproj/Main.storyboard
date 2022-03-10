@@ -86,7 +86,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9A-NG-tZI">
-                                <rect key="frame" x="354" y="308.5" width="50" height="50"/>
+                                <rect key="frame" x="354" y="298.5" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.84191615987069834" green="0.84191615987069834" blue="0.84191615987069834" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="OKi-Dn-yav"/>
                                     <constraint firstAttribute="width" constant="50" id="cFb-Kn-DZV"/>
@@ -96,6 +97,11 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <imageReference key="image" image="bookmark" catalog="system" symbolScale="default"/>
                                 </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="bookmarkBtnPressed:" destination="h0S-oi-cYQ" eventType="touchUpInside" id="aGd-1A-lie"/>
                                 </connections>
@@ -105,7 +111,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="K50-8Q-pwQ" firstAttribute="leading" secondItem="jeW-RA-dGe" secondAttribute="leading" constant="20" id="6un-H4-MsV"/>
-                            <constraint firstItem="9Fs-Cd-vu0" firstAttribute="top" secondItem="n9A-NG-tZI" secondAttribute="bottom" constant="10" id="FFs-aB-dn3"/>
+                            <constraint firstItem="9Fs-Cd-vu0" firstAttribute="top" secondItem="n9A-NG-tZI" secondAttribute="bottom" constant="20" id="FFs-aB-dn3"/>
                             <constraint firstItem="jeW-RA-dGe" firstAttribute="trailing" secondItem="3dd-WU-603" secondAttribute="trailing" id="MRa-Gu-fDP"/>
                             <constraint firstItem="K50-8Q-pwQ" firstAttribute="top" secondItem="9Fs-Cd-vu0" secondAttribute="bottom" constant="10" id="Qsc-46-q5v"/>
                             <constraint firstItem="3dd-WU-603" firstAttribute="leading" secondItem="jeW-RA-dGe" secondAttribute="leading" id="bfe-Kn-ElN"/>
@@ -328,6 +334,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yxm-zC-nHq">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
